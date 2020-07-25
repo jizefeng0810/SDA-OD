@@ -1,0 +1,44 @@
+check list:
+
+python main.py ctdet --source_dataset cityscapes --target_dataset foggy_cityscapes --lr_step 50,70 --num_epochs 80 --exp_id grl_C2F --batch_size 8 --gpus 1,0 --load_model F:/JZF/DAOD/ctdet_coco_dla_2x.pth
+
+###############train.py###########################
+ctdet
+--dataset _
+--exp_id _
+--arch _
+--resume
+--lr 1.25e-4
+--lr_step 90,120
+--val_intervals 5
+--num_epochs 200
+--gpus 0,1
+--batch_size 8
+--master_batch_size _
+--load_model _
+
+log:
+--print_iter 0
+--hide_data_time
+--save_all
+
+loss:
+--mse_loss
+--reg_loss l1
+--hm_weight 1
+--off_weight 1
+--wh_weight 0.1
+
+dataset:
+--no_color_aug
+
+
+
+###############test.py###########################
+--not_prefetch_test
+
+###############demo.py###########################
+--vis_thresh 0.3
+
+
+

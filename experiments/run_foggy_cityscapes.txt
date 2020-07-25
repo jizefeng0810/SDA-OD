@@ -1,0 +1,9 @@
+# run foggy_cityscapes to main.py
+python main.py ctdet --dataset foggy_cityscapes --exp_id foggy_cityscapes_dla --batch_size 8 --lr 1.25e-4  --gpus 1
+
+# run foggy_cityscapes to test.py
+python test.py --exp_id foggy_cityscapes_dla --dataset foggy_cityscapes --not_prefetch_test ctdet --load_model F:/JZF/DAOD/DAOD_CenterNet_backup/exp/ctdet/foggy_cityscapes_dla/model_best.pth
+
+
+# run cityscapes to demo.py
+python demo.py ctdet --demo F:/JZF/dataset/foggy_cityscapes_data/coco_foggy_cityscapes/images --load_model F:/JZF/DAOD/DAOD_CenterNet/exp/ctdet/foggy_cityscapes_dla/model_best.pth

@@ -1,0 +1,15 @@
+# run cityscapes to demo.py
+python demo.py ctdet --demo F:/JZF/dataset/cityscapes_data/coco_cityscapes/images --load_model F:/JZF/DAOD/DAOD_CenterNet/exp/ctdet/cityscapes_dla/model_best.pth
+
+
+# run cityscapes to main.py
+python main.py ctdet --dataset cityscapes --exp_id fake_cityscapes_dla --batch_size 8 --master_batch_size 4 --lr 1.25e-4  --gpus 0,1 --load_model F:/JZF/DAOD/DAOD_CenterNet_backup2/models/ctdet_coco_dla_2x.pth
+
+
+
+# run cityscapes to test.py
+python test.py --exp_id fake_cityscapes_dla --dataset foggy_cityscapes --not_prefetch_test ctdet --load_model F:/JZF/DAOD/DAOD_CenterNet_backup2/exp/ctdet/fake_cityscapes_dla/model_best.pth
+
+
+
+

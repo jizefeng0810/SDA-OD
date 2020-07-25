@@ -1,0 +1,7 @@
+python demo.py ctdet --debugger_theme black --demo F:/JZF/DAOD/images/foggy_images_demo --load_model
+
+F:/JZF/dataset/foggy_cityscapes_data/coco_foggy_cityscapes/images
+
+
+F:\\JZF\\DAOD\\DAOD_CenterNet_GRL_C2F\\exp\\ctdet\\grl_fakeC2F_10_0.001\\model_last.pth
+

@@ -1,0 +1,15 @@
+参数：--da_weight 1.0 --grl_weight 0.2
+# main.py
+python main.py ctdet --source_dataset fake_kitti_2d --target_dataset cityscapes_car_only --lr 1.25e-3 --lr_step 40,80 --num_epochs 100 --exp_id grl_fakeK2C_1_0.2 --da_weight 1.0 --grl_weight 0.2 --batch_size 32 --master_batch_size 4 --gpus 0,1 --load_model F:/JZF/DAOD/ctdet_coco_dla_2x.pth
+
+# python test.py
+1: "fake_kitti_2d -> cityscapes_car_only"  mAP: 27.8(98) 30.6(5) 23.0(36.0) 25.3(49) 27.4(89)
+ctdet --exp_id checkout --source_dataset cityscapes_car_only --not_prefetch_test --load_model F:\\JZF\\DAOD\\DAOD_CenterNet_GRL_ALL\\exp\\ctdet\\grl_fakeK2C_1_0.2\\model_last.pth
+
+
+
+
+
+
+
+
