@@ -1,5 +1,4 @@
-# SDA-OD
-Implemention of paper "**"
+# Implementation of paper "Stepwise Domain Adaptation for Object Detection Using Adaptative CenterNet" from Journal
 Paper link:**
 
 In recent years, deep learning technologies for object detection have made great progress and have powered the emergence of state-of-the-art models to address object detection
