@@ -9,9 +9,9 @@ Domain shift is addressed in two steps. In the first step, to bridge the domain 
 
 ## Evaluation
 Our proposed method is evaluated in two domain shift scenarios based on the driving datasets including Cityscapes, Foggy Cityscapes, and BDD100K. 
-### Clear-to-Haze Adaptation
+### Scenario 1：Clear-to-Haze Adaptation
 
-### Daytime-to-Nighttime Adaptation
+### Scenario 1：Daytime-to-Nighttime Adaptation
 
 
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
