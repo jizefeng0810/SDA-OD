@@ -1,6 +1,8 @@
 # Implementation of paper "Stepwise Domain Adaptation for Object Detection Using Adaptative CenterNet" from Journal
 Paper link:**
 
+The project upload is not complete, and the full version will be announced when the paper is received.
+
 In recent years, deep learning technologies for object detection have made great progress and have powered the emergence of state-of-the-art models to address object detection
 problems. Since the domain shift can make detectors unstable or even crash, the detection of cross-domain becomes very important for the design of object detectors. However, traditional deep learning technologies for object detection always rely on a large amount of reliable ground-truth labelling that is laborious, costly, and time-consuming. In this repository, a stepwise domain adaptation method is proposed for cross-domain object detection. 
 
