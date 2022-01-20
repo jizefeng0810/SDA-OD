@@ -12,7 +12,7 @@ Domain shift is addressed in two steps. In the first step, to bridge the domain 
 ---
 
 ## Evaluation
-Our proposed method is evaluated in two domain shift scenarios based on the driving datasets. 
+Our proposed method is evaluated in domain shift scenarios based on the driving datasets. 
 ### Clear-to-Haze Adaptation Scenario
 ```
 python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --load_model ./save.pth
@@ -33,6 +33,9 @@ Below script gives you an example of training a model with [pre-trained model](h
 python main.py ctdet --source_dataset cityscapes --target_dataset foggy_cityscapes --lr 1.25e-3 --lr_step 40,80 --num_epochs 100 --exp_id grl_C2F --batch_size 8 --gpus 0 --load_model pre-model/ctdet_coco_dla_2x.pth
 ```
 ---
+
+## Detection
+<div align=center><img src="img/detect.jpg"></div>
 
 ## Citations
 If this project is helpful to your research, please cite this below.
