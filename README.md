@@ -14,9 +14,9 @@ Domain shift is addressed in two steps. In the first step, to bridge the domain 
 ## Evaluation
 Our proposed method is evaluated in two domain shift scenarios based on the driving datasets. 
 ### Clear-to-Haze Adaptation Scenario
-You can download the [checkpoint](https://drive.google.com/open?id=1UOF1ACYA3Nn5K_RjoItOUFSxnFL6sNOg) and do prediction or evaluation.
+You can download the [checkpoint]() and do prediction or evaluation.
 ```
-
+python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --load_model ./save.pth
 ```
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
 <div align=center><img src="img/res.jpg"></div>
@@ -30,12 +30,12 @@ pytorch == 1.*.0
 ```
 
 ### Training
-#### CycleGAN
+#### Step 1: CycleGAN
 The source code used for the CycleGAN model was made publicly available by [here](https://github.com/aitorzip/PyTorch-CycleGAN).
-#### Adaptive CenterNet
-Below script gives you an example of training a model with our models.
+#### Step 2: Adaptive CenterNet
+Below script gives you an example of training a model with [pre-trained model](https://drive.google.com/file/d/1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT/view).
 ```
-
+python main.py ctdet --source_dataset cityscapes --target_dataset foggy_cityscapes --lr 1.25e-3 --lr_step 40,80 --num_epochs 100 --exp_id grl_C2F --batch_size 8 --gpus 0 --load_model pre-model/ctdet_coco_dla_2x.pth
 ```
 ---
 
