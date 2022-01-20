@@ -1,5 +1,6 @@
-# Implementation of SDA
-paper "Stepwise Domain Adaptation (SDA) for Object Detection in Autonomous Vehicles Using an Adaptive CenterNet" from Journal
+# Implementation of SDA-OD
+Paper "Stepwise Domain Adaptation (SDA) for Object Detection in Autonomous Vehicles Using an Adaptive CenterNet" from Journal **
+
 Paper link:**
 
 # Absract
