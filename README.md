@@ -29,7 +29,7 @@ python main.py ctdet --source_dataset cityscapes --target_dataset foggy_cityscap
 Our proposed method is evaluated in domain shift scenarios based on the driving datasets. 
 ### Clear-to-Haze Adaptation Scenario
 ```
-python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --load_model ./save.pth
+python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --load_model ./save.pth
 ```
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
 <div align=center><img src="img/res.jpg"></div>
