@@ -28,7 +28,8 @@ python main.py ctdet --source_dataset cityscapes --target_dataset foggy_cityscap
 
 ## Evaluation
 Our proposed method is evaluated in domain shift scenarios based on the driving datasets. 
-### Clear-to-Haze Adaptation Scenario
+### Examples: Clear-to-Haze Adaptation Scenario
+You can download the [checkpoint]() and do prediction or evaluation.
 ```
 python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --load_model ./save.pth
 ```
