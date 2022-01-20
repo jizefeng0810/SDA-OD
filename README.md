@@ -14,7 +14,6 @@ Domain shift is addressed in two steps. In the first step, to bridge the domain 
 ## Evaluation
 Our proposed method is evaluated in two domain shift scenarios based on the driving datasets. 
 ### Clear-to-Haze Adaptation Scenario
-You can download the [checkpoint]() and do prediction or evaluation.
 ```
 python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --load_model ./save.pth
 ```
@@ -23,11 +22,7 @@ The results show that our method is superior to the state-of-the-art methods and
 
 ---
 ## How to use code
-### Requirement
-```
-pytorch == 1.*.0
-
-```
+Please refer to [INSTALL.md](https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md) for installation instructions.
 
 ### Training
 #### Step 1: CycleGAN
