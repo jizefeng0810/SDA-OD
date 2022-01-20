@@ -324,9 +324,9 @@ class opts(object):
         #           'mean': [0.28805044, 0.32632137, 0.2854135], 'std': [0.17725339, 0.18182704, 0.17837277],
         #           'dataset': 'cityscapes'},
             # foggy cityscapes  """F:/JZF/dataset/foggy_cityscapes_data/coco_foggy_cityscapes/images"""
-        # 'ctdet': {'default_resolution': [512, 512], 'num_classes': 8,
-        #           'mean': [0.51653591, 0.54938186, 0.51942652], 'std': [0.19561128, 0.19326489, 0.19661125],
-        #           'dataset': 'foggy_cityscapes'},
+        'ctdet': {'default_resolution': [512, 512], 'num_classes': 8,
+                  'mean': [0.51653591, 0.54938186, 0.51942652], 'std': [0.19561128, 0.19326489, 0.19661125],
+                  'dataset': 'foggy_cityscapes'},
             # cityscapes_car_only   """F:/JZF/dataset/cityscapes_data/coco_cityscapes/images"""
         # 'ctdet': {'default_resolution': [512, 512], 'num_classes': 1,
         #           'mean': [0.28805044, 0.32632137, 0.2854135], 'std': [0.17725339, 0.18182704, 0.17837277],
@@ -340,9 +340,9 @@ class opts(object):
         #           'mean': [0.35473967, 0.41255325, 0.4229607 ], 'std': [0.22598952, 0.24230722, 0.25998457],
         #           'dataset': 'bdd_daytime'},
             # bdd_night  """F:/JZF/dataset/bdd_data/bdd_daytime_city/images"""
-        'ctdet': {'default_resolution': [512, 512], 'num_classes': 10,
-                  'mean': [0.14476079, 0.12079413, 0.1051789], 'std': [0.14281037, 0.13052226, 0.12332797],
-                  'dataset': 'bdd_night'},
+#         'ctdet': {'default_resolution': [512, 512], 'num_classes': 10,
+#                   'mean': [0.14476079, 0.12079413, 0.1051789], 'std': [0.14281037, 0.13052226, 0.12332797],
+#                   'dataset': 'bdd_night'},
 
 
       'exdet': {'default_resolution': [512, 512], 'num_classes': 80, 
