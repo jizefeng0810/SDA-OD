@@ -7,6 +7,7 @@ In recent years, deep learning technologies for object detection have made great
 ---
 ## Approaches
 Domain shift is addressed in two steps. In the first step, to bridge the domain gap, an unpaired image-to-image translator is trained to construct a fake target domain by translating the source images to the similar ones in the target domain. In the second step, an adaptive CenterNet is designed to align distributions at the feature level in an adversarial learning manner.
+<div align=center><img src="img/framework.jpg"></div>
 
 ---
 
@@ -17,10 +18,8 @@ You can download the [checkpoint](https://drive.google.com/open?id=1UOF1ACYA3Nn5
 ```
 
 ```
-<div align=center><img src="img/res.jpg"></div>
-
-
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
+<div align=center><img src="img/res.jpg"></div>
 
 ---
 ## How to use code
