@@ -38,3 +38,9 @@ Below script gives you an example of training a model with our models.
 
 ```
 ---
+
+## Citations
+If this project is helpful to your research, please cite this below.
+```
+
+```
