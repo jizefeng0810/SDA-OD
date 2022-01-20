@@ -22,24 +22,24 @@ The source code used for the CycleGAN model was made publicly available by [here
 #### Step 2: Adaptive CenterNet
 Below script gives you an example of training a model with [pre-trained model](https://drive.google.com/file/d/1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT/view).
 ```
-python main.py ctdet --source_dataset cityscapes --target_dataset foggy_cityscapes --lr 1.25e-3 --lr_step 40,80 --num_epochs 100 --exp_id grl_C2F --batch_size 8 --gpus 0 --load_model pre-model/ctdet_coco_dla_2x.pth
+python main.py ctdet --source_dataset fake_cityscapes --target_dataset foggy_cityscapes --lr 1.25e-4 --lr_step 40,80 --num_epochs 100 --exp_id grl_C2F --batch_size 32 --gpus 0 --load_model ./pre-trained-model/ctdet_coco_dla_2x.pth
 ```
 ---
 
 ## Evaluation
 Our proposed method is evaluated in domain shift scenarios based on the driving datasets. 
 ### Examples: Clear-to-Haze Adaptation Scenario
-You can download the [checkpoint]() and do prediction or evaluation.
+You can download the [checkpoint](https://drive.google.com/file/d/1bbtUnB7vi5p3cpX2Mf0iz_ploj2Omxdv/view?usp=sharing) and do prediction or evaluation.
 ```
-python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --load_model ./save.pth
+python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --load_model ./sda_save.pth
 ```
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
 <div align=center><img src="img/res.jpg"></div>
 
 ---
-## Detection
+## Prediction
 ```
-python demo.py ctdet --demo ./images --load_model ./model_best.pth
+python demo.py ctdet --demo ./images --load_model ./sda_save.pth
 ```
 <div align=center><img src="img/detect.jpg"></div>
 
