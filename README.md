@@ -35,6 +35,9 @@ The results show that our method is superior to the state-of-the-art methods and
 
 ---
 ## Detection
+```
+python demo.py ctdet --demo ./images --load_model ./model_best.pth
+```
 <div align=center><img src="img/detect.jpg"></div>
 
 ## Citations
