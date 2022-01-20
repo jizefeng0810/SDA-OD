@@ -38,6 +38,7 @@ The results show that our method is superior to the state-of-the-art methods and
 
 ---
 ## Prediction
+The image detection results can be viewed with the following commands.
 ```
 python demo.py ctdet --demo ./images --load_model ./sda_save.pth
 ```
