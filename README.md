@@ -14,7 +14,7 @@ You can download the [checkpoint](https://drive.google.com/open?id=1UOF1ACYA3Nn5
 ```
 
 ```
-<div align=center><img src="pictures/inria.png"></div>
+<div align=center><img src="img/res.png"></div>
 
 
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
