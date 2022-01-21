@@ -1,7 +1,0 @@
-# main.py
-python main.py ctdet --source_dataset fake_bdd_daytime --target_dataset bdd_night --lr 1.25e-4 --lr_step 40,80 --num_epochs 100 --exp_id grl_bdd_1_0.2 --batch_size 16 --master_batch_size 4 --gpus 0,1 --da_weight 1.0 --grl_weight 0.2 --load_model F:/JZF/DAOD/ctdet_coco_dla_2x.pth
-
-
-
-# demo.py
-python demo.py ctdet --demo F:\\JZF\\img_demo\\more --load_model F:\\JZF\\DAOD\\DAOD_CenterNet_GRL_ALL\\exp\\ctdet\\grl_bdd_1_0.02_lr-4\\model_last.pth
