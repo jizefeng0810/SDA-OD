@@ -42,8 +42,8 @@ def demo(opt):
           ext = file_name[file_name.rfind('.') + 1:].lower()
           if ext in image_ext:
               image_names.append(os.path.join(opt.demo, file_name))
-          else:
-              image_names.append(os.path.join('F:\\JZF\\dataset\\bdd_data\\bdd_night_city\\images', file_name.replace(ext, 'jpg')))
+          # else:
+          #     image_names.append(os.path.join(r'F:\JZF\img_demo\bdd_daytime', file_name.replace(ext, 'jpg')))
     else:
       image_names = [opt.demo]
     

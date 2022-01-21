@@ -13,7 +13,7 @@ import torch.utils.data as data
 
 class Cityscapes_CarOnly(data.Dataset):
     num_classes = 1     # check
-    default_resolution = [384, 384]     # check
+    default_resolution = [512, 512]     # check
     mean = np.array([0.28805044, 0.32632137, 0.2854135],   # check
                     dtype=np.float32).reshape(1, 1, 3)
     std = np.array([0.17725339, 0.18182704, 0.17837277],    # check

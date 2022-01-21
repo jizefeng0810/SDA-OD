@@ -61,8 +61,22 @@ class Debugger(object):
       self.names = bdd_night_class_name
     elif num_classes == 10 or dataset == 'fake_bdd_daytime':
       self.names = fake_bdd_daytime_class_name
+    elif num_classes == 1 or dataset == 'sim10k':
+      self.names = sim10k_class_name
+    elif num_classes == 1 or dataset == 'fake_sim10k_class_name':
+      self.names = fake_sim10k_class_name
+    elif num_classes == 1 or dataset == 'bdd_d2n_day':
+      self.names = bdd_d2n_day_class_name
+    elif num_classes == 1 or dataset == 'bdd_d2n_night':
+      self.names = bdd_d2n_night_class_name
+    elif num_classes == 1 or dataset == 'fake_bdd_d2n_day':
+      self.names = fake_bdd_d2n_day_class_name
     elif num_classes == 20 or dataset == 'pascal':
       self.names = pascal_class_name
+    elif num_classes == 8 or dataset == 'bdd_daytime_8cls':
+        self.names = cityscapes_class_name
+    elif num_classes == 8 or dataset == 'fake_cityscapes2bdd':
+      self.names = cityscapes_class_name
     elif dataset == 'gta':
       self.names = gta_class_name
       self.focal_length = 935.3074360871937
@@ -196,7 +210,7 @@ class Debugger(object):
       c = (255 - np.array(c)).tolist()
     txt = '{}{:.1f}'.format(self.names[cat], conf)
     font = cv2.FONT_HERSHEY_SIMPLEX
-    cat_size = cv2.getTextSize(txt, font, 0.5, 2)[0]
+    cat_size = cv2.getTextSize(txt, font, 2, 2)[0]    # 1.5, 2
     cv2.rectangle(
       self.imgs[img_id], (bbox[0], bbox[1]), (bbox[2], bbox[3]), c, 3)
     if show_txt:
@@ -204,7 +218,7 @@ class Debugger(object):
                     (bbox[0], bbox[1] - cat_size[1] - 2),
                     (bbox[0] + cat_size[0], bbox[1] - 2), c, -1)
       cv2.putText(self.imgs[img_id], txt, (bbox[0], bbox[1] - 2), 
-                  font, 0.5, (0, 0, 0), thickness=1, lineType=cv2.LINE_AA)
+                  font, 2, (0, 0, 0), thickness=1, lineType=cv2.LINE_AA)    # font, 1.5
 
   def add_coco_hp(self, points, img_id='default'): 
     points = np.array(points, dtype=np.int32).reshape(self.num_joints, 2)
@@ -491,12 +505,19 @@ foggy_cityscapes_class_name = ['person', 'rider', 'car', 'truck', 'bus', 'train'
 kitti2d_class_name = ['car']
 fake_kitti2d_class_name = ['car']
 cityscapes_car_only_class_name = ['car']
+sim10k_class_name = ['car']
+fake_sim10k_class_name = ['car']
 bdd_daytime_class_name = ["person", "rider", "car", "bus", "truck", "bike", "motor", "traffic light", "traffic sign", "train"]
 bdd_night_class_name = ["person", "rider", "car", "bus", "truck", "bike", "motor", "traffic light", "traffic sign", "train"]
 fake_bdd_daytime_class_name = ["person", "rider", "car", "bus", "truck", "bike", "motor", "traffic light", "traffic sign", "train"]
+bdd_d2n_day_class_name = ['car']
+bdd_d2n_night_class_name = ['car']
+fake_bdd_d2n_day_class_name = ['car']
+bdd_daytime_8class_name = ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motor','bike']
 
 color_list = np.array(
         [
+#0.000, 1.000, 0.000,    # 绿
             0.000, 0.000, 1.000,    # 红
             1.000, 0.000, 0.000,    # 蓝
             0.000, 1.000, 0.000,    # 绿

@@ -48,7 +48,7 @@ class BaseTrainer(object):
         if isinstance(v, torch.Tensor):
           state[k] = v.to(device=device, non_blocking=True)
 
-  def run_epoch(self, phase, epoch, source_data_loader, target_data_loader = None):
+  def run_epoch(self, phase, epoch, source_data_loader = None, target_data_loader = None):
     if target_data_loader == None:  # only source dataset
       model_with_loss = self.model_with_loss
       if phase == 'train':
@@ -128,9 +128,16 @@ class BaseTrainer(object):
       num_iters = len(source_data_loader) if opt.num_iters < 0 else opt.num_iters
       bar = Bar('{}/{}'.format(opt.task, opt.exp_id), max=num_iters)
       end = time.time()
-      for iter_id, (source_batch, target_batch) in enumerate(zip(source_data_loader, target_data_loader)):
+
+      import itertools
+      target_data_loader = itertools.cycle(target_data_loader)
+      # for iter_id, (source_batch, target_batch) in enumerate(zip(source_data_loader, target_data_loader)):
+      for iter_id, source_batch in enumerate(source_data_loader):
+        target_batch = next(target_data_loader)
+
         p = float(((iter_id + 1) + (epoch - 1) * num_iters) / opt.num_epochs / num_iters)
         alpha = (2. / (1. + np.exp(-10 * p)) - 1) * opt.grl_weight # 0.002
+
         if iter_id >= num_iters:
           break
         data_time.update(time.time() - end)
@@ -141,6 +148,11 @@ class BaseTrainer(object):
             target_batch[k] = target_batch[k].to(device=opt.device, non_blocking=True)
 
         output, loss, loss_stats = model_with_loss(source_batch, target_batch, alpha) # Network
+
+        for k in target_batch:  # 释放gpu
+          if k != 'meta':
+            target_batch[k] = target_batch[k].cpu()
+
         loss = loss.mean()
         if phase == 'train':
           self.optimizer.zero_grad()
@@ -186,8 +198,8 @@ class BaseTrainer(object):
   def _get_losses(self, opt):
     raise NotImplementedError
   
-  def val(self, epoch, data_loader):
-    return self.run_epoch('val', epoch, data_loader)
+  def val(self, epoch, source_data_loader=None, target_data_loader=None):
+    return self.run_epoch('val', epoch, source_data_loader, target_data_loader)
 
   def train(self, epoch, source_data_loader, target_data_loader):
     return self.run_epoch('train', epoch, source_data_loader, target_data_loader)

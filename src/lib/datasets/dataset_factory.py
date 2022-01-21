@@ -20,6 +20,13 @@ from .dataset.cityscapes_caronly import Cityscapes_CarOnly
 from .dataset.bdd_daytime import BDD_Daytime
 from .dataset.bdd_night import BDD_Night
 from .dataset.fake_bdd_daytime import Fake_BDD_Daytime
+from .dataset.fake_sim10k import Fake_Sim10K
+from .dataset.sim10k import Sim10K
+from .dataset.bdd_d2n_day import BDD_D2N_DAY
+from .dataset.bdd_d2n_night import BDD_D2N_NIGHT
+from .dataset.fake_bdd_d2n_day import FAKE_BDD_D2N_DAY
+from .dataset.bdd_daytime_8cls import BDD_Daytime_8CLS
+from .dataset.fake_cityscapes2bdd import Fake_Cityscapes2BDD
 
 dataset_factory = {
   'coco': COCO,
@@ -35,6 +42,13 @@ dataset_factory = {
   'bdd_daytime': BDD_Daytime,
   'bdd_night': BDD_Night,
   'fake_bdd_daytime': Fake_BDD_Daytime,
+  'sim10k': Sim10K,
+  'fake_sim10k': Fake_Sim10K,
+  'bdd_d2n_day': BDD_D2N_DAY,
+  'bdd_d2n_night': BDD_D2N_NIGHT,
+  'fake_bdd_d2n_day': FAKE_BDD_D2N_DAY,
+  'bdd_daytime_8cls': BDD_Daytime_8CLS,
+  'fake_cityscapes2bdd': Fake_Cityscapes2BDD,
 }
 
 _sample_factory = {

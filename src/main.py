@@ -43,19 +43,31 @@ def main(opt, opt_t):
   trainer = Trainer(opt, model, optimizer)  # initial trainer
   trainer.set_device(opt.gpus, opt.chunk_sizes, opt.device)
 
-  print('Setting up source_val data...')
-  val_source_loader = torch.utils.data.DataLoader(
-      Dataset_source(opt, 'val'),
-      batch_size=1, 
-      shuffle=False,
-      num_workers=0,
-      pin_memory=True
-  )
-
-  if opt.test:
-    _, preds = trainer.val(0, val_source_loader)
-    val_source_loader.dataset.run_eval(preds, opt.save_dir)
-    return
+  if opt.target_dataset:
+    print('Setting up target_val data...')
+    val_target_loader = torch.utils.data.DataLoader(
+        Dataset_target(opt_t, 'val'),
+        batch_size=1,
+        shuffle=False,
+        num_workers=0,
+        pin_memory=True
+    )
+    if opt.test:
+        _, preds = trainer.val(0, val_target_loader)
+        val_target_loader.dataset.run_eval(preds, opt.save_dir)
+  else:
+    print('Setting up source_val data...')
+    val_source_loader = torch.utils.data.DataLoader(
+        Dataset_source(opt, 'val'),
+        batch_size=1,
+        shuffle=False,
+        num_workers=0,
+        pin_memory=True
+    )
+    if opt.test:
+        _, preds = trainer.val(0, val_source_loader)
+        val_source_loader.dataset.run_eval(preds, opt.save_dir)
+        return
 
     # source loader
   print('Setting up source_train data...')
@@ -79,6 +91,7 @@ def main(opt, opt_t):
           pin_memory=True,
           drop_last=True
         )
+
         print('DA MODE')
   else:
       train_target_loader = None
@@ -92,19 +105,22 @@ def main(opt, opt_t):
     for k, v in log_dict_train.items(): # log information
       logger.scalar_summary('train_{}'.format(k), v, epoch)
       logger.write('{} {:8f} | '.format(k, v))
-    # if opt.val_intervals > 0 and epoch % opt.val_intervals == 0:
-    #   save_model(os.path.join(opt.save_dir, 'model_{}.pth'.format(mark)),   # save last-model
-    #              epoch, model, optimizer)
-    #   with torch.no_grad():
-    #     log_dict_val, preds = trainer.val(epoch, val_source_loader) # cal val-set loss
-    #   for k, v in log_dict_val.items():
-    #     logger.scalar_summary('val_{}'.format(k), v, epoch)
-    #     logger.write('{} {:8f} | '.format(k, v))
-    #   if log_dict_val[opt.metric] < best:
-    #     best = log_dict_val[opt.metric]
-    #     save_model(os.path.join(opt.save_dir, 'model_best.pth'),    # save best-model
-    #                epoch, model)
-    # else:
+    if opt.val_intervals > 0 and epoch % opt.val_intervals == 0:
+      save_model(os.path.join(opt.save_dir, 'model_{}.pth'.format(epoch)),   # save last-model
+                 epoch, model, optimizer)
+      # with torch.no_grad():
+      #   if opt.target_dataset:
+      #       log_dict_val, preds = trainer.val(epoch, target_data_loader=val_target_loader)  # cal val-set loss
+      #   else:
+      #       log_dict_val, preds = trainer.val(epoch, source_data_loader=val_source_loader)  # cal val-set loss
+      # for k, v in log_dict_val.items():
+      #   logger.scalar_summary('val_{}'.format(k), v, epoch)
+      #   logger.write('{} {:8f} | '.format(k, v))
+      # if log_dict_val[opt.metric] < best:
+      #   best = log_dict_val[opt.metric]
+      #   save_model(os.path.join(opt.save_dir, 'model_best.pth'),    # save best-model
+      #              epoch, model)
+    else:
       save_model(os.path.join(opt.save_dir, 'model_last.pth'),
                  epoch, model, optimizer)
     logger.write('\n')

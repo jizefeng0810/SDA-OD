@@ -12,12 +12,12 @@ class opts(object):
     # basic experiment setting
     self.parser.add_argument('task', default='ctdet',
                              help='ctdet | ddd | multi_pose | exdet')
-    self.parser.add_argument('--source_dataset', default='bdd_night',
+    self.parser.add_argument('--source_dataset', default='foggy_cityscapes',
                              help='coco | cityscapes | foggy_cityscapes | kitti_2d | fake_kitti_2d '
-                                  '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime')
+                                  '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime | sim10k | fake_sim10k')
     self.parser.add_argument('--target_dataset', default= None,
                              help='coco | cityscapes | foggy_cityscapes | kitti_2d | fake_kitti_2d '
-                                  '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime')
+                                  '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime | sim10k | fake_sim10k')
     self.parser.add_argument('--exp_id', default='default')
     self.parser.add_argument('--test', action='store_true')
     self.parser.add_argument('--debug', type=int, default=0,
@@ -96,7 +96,7 @@ class opts(object):
                              help='batch size on the master gpu.')
     self.parser.add_argument('--num_iters', type=int, default=-1,
                              help='default: #samples / batch_size.')
-    self.parser.add_argument('--val_intervals', type=int, default=5,
+    self.parser.add_argument('--val_intervals', type=int, default=1,
                              help='number of epochs to run validation.')
     self.parser.add_argument('--trainval', action='store_true',
                              help='include validation in training and '
@@ -340,9 +340,33 @@ class opts(object):
         #           'mean': [0.35473967, 0.41255325, 0.4229607 ], 'std': [0.22598952, 0.24230722, 0.25998457],
         #           'dataset': 'bdd_daytime'},
             # bdd_night  """F:/JZF/dataset/bdd_data/bdd_daytime_city/images"""
-#         'ctdet': {'default_resolution': [512, 512], 'num_classes': 10,
-#                   'mean': [0.14476079, 0.12079413, 0.1051789], 'std': [0.14281037, 0.13052226, 0.12332797],
-#                   'dataset': 'bdd_night'},
+        # 'ctdet': {'default_resolution': [512, 512], 'num_classes': 10,
+        #           'mean': [0.14476079, 0.12079413, 0.1051789], 'std': [0.14281037, 0.13052226, 0.12332797],
+        #           'dataset': 'bdd_night'},
+            # sim10k  """F:/JZF/dataset/sim10k_data/coco_sim10k/images"""
+        # 'ctdet': {'default_resolution': [512, 512], 'num_classes': 1,
+        #           'mean': [0.40244114, 0.39286047, 0.37903187], 'std': [0.20810364, 0.20251139, 0.20244385],
+        #           'dataset': 'sim10k'},
+            # sim10k  """F:/JZF/dataset/sim10k_data/coco_sim10k/fake_sim10k"""
+        # 'ctdet': {'default_resolution': [512, 512], 'num_classes': 1,
+        #           'mean': [0.28884804, 0.3255015, 0.28763468], 'std': [0.1630454, 0.17035284, 0.16748148],
+        #           'dataset': 'fake_sim10k'},
+            # bdd_d2n_day  """F:\JZF\dataset\bdd_data\bdd_d2n\daytime\images"""
+        # 'ctdet': {'default_resolution': [256, 256], 'num_classes': 1,
+        #           'mean': [0.36782903, 0.43839413, 0.45688036], 'std': [0.22411075, 0.2470312, 0.27089972],
+        #           'dataset': 'bdd_d2n_day'},
+        # bdd_d2n_night  """F:\JZF\dataset\bdd_data\bdd_d2n\nighttime\images"""
+        # 'ctdet': {'default_resolution': [256, 256], 'num_classes': 1,
+        #           'mean': [0.1567612,  0.12642667, 0.1108113], 'std': [0.14959613, 0.13441131, 0.12645675],
+        #           'dataset': 'bdd_d2n_night'},
+        # bdd_d2n_day  """F:\JZF\dataset\bdd_data\bdd_d2n\daytime\fake_night_images"""
+        # 'ctdet': {'default_resolution': [256, 256], 'num_classes': 1,
+        #           'mean': [0.15161582, 0.12681516, 0.11057695], 'std': [0.14407241, 0.13056032, 0.12401665],
+        #           'dataset': 'fake_bdd_d2n_day'},
+            # bdd_daytime_8cls  """F:/JZF/dataset/bdd_data/bdd_daytime_city_8cls/images"""
+        # 'ctdet': {'default_resolution': [512, 512], 'num_classes': 10,
+        #           'mean': [0.35473967, 0.41255325, 0.4229607 ], 'std': [0.22598952, 0.24230722, 0.25998457],
+        #           'dataset': 'bdd_daytime_8cls'},
 
 
       'exdet': {'default_resolution': [512, 512], 'num_classes': 80, 

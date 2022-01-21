@@ -94,4 +94,5 @@ class CtdetDetector(BaseDetector):
         if bbox[4] > self.opt.vis_thresh:
           debugger.add_coco_bbox(bbox[:4], j - 1, bbox[4], img_id='ctdet')
     # debugger.show_all_imgs(pause=self.pause)
-    debugger.save_all_imgs(path='F:\\JZF\\img_demo\\BDD\\DAOD_night', prefix = image_name)
+    # debugger.save_all_imgs(path=r'F:\JZF\img_demo\s2c_demo\refined_origin\da', prefix = image_name)
+    debugger.save_all_imgs(path=r'F:\JZF\img_demo\FoggyCity\DAOD', prefix=image_name)
