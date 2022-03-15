@@ -12,13 +12,14 @@ class opts(object):
     # basic experiment setting
     self.parser.add_argument('task', default='ctdet',
                              help='ctdet | ddd | multi_pose | exdet')
-    self.parser.add_argument('--source_dataset', default='foggy_cityscapes',
+    self.parser.add_argument('--source_dataset', default='cityscapes',
                              help='coco | cityscapes | foggy_cityscapes | kitti_2d | fake_kitti_2d '
                                   '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime | sim10k | fake_sim10k')
-    self.parser.add_argument('--target_dataset', default= None,
+    self.parser.add_argument('--target_dataset', default= 'foggy_cityscapes',
                              help='coco | cityscapes | foggy_cityscapes | kitti_2d | fake_kitti_2d '
                                   '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime | sim10k | fake_sim10k')
-    self.parser.add_argument('--exp_id', default='default')
+    self.parser.add_argument('--data_dir', default='/root/')
+	self.parser.add_argument('--exp_id', default='default')
     self.parser.add_argument('--test', action='store_true')
     self.parser.add_argument('--debug', type=int, default=0,
                              help='level of visualization.'
@@ -86,9 +87,9 @@ class opts(object):
     # train
     self.parser.add_argument('--lr', type=float, default=1.25e-3,
                              help='learning rate for batch size 32.')
-    self.parser.add_argument('--lr_step', type=str, default='90,120',
+    self.parser.add_argument('--lr_step', type=str, default='40,80',
                              help='drop learning rate by 10.')
-    self.parser.add_argument('--num_epochs', type=int, default=140,
+    self.parser.add_argument('--num_epochs', type=int, default=100,
                              help='total training epochs.')
     self.parser.add_argument('--batch_size', type=int, default=1,
                              help='batch size')
@@ -278,8 +279,6 @@ class opts(object):
     print('training chunk_sizes:', opt.chunk_sizes)
 
     opt.root_dir = os.path.join(os.path.dirname(__file__), '..', '..')
-    # opt.data_dir = os.path.join(opt.root_dir, 'data')
-    opt.data_dir = 'F:\\JZF\\dataset'
     opt.exp_dir = os.path.join(opt.root_dir, 'exp', opt.task)
     opt.save_dir = os.path.join(opt.exp_dir, opt.exp_id)
     opt.debug_dir = os.path.join(opt.save_dir, 'debug')
