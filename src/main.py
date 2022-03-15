@@ -110,7 +110,7 @@ def main(opt, opt_t):
                  epoch, model, optimizer)
       # with torch.no_grad():
       #   if opt.target_dataset:
-      #       log_dict_val, preds = trainer.val(epoch, target_data_loader=val_target_loader)  # cal val-set loss
+      #       log_dict_val, preds = trainer.val(epoch, source_data_loader=val_target_loader)  # cal val-set loss
       #   else:
       #       log_dict_val, preds = trainer.val(epoch, source_data_loader=val_source_loader)  # cal val-set loss
       # for k, v in log_dict_val.items():

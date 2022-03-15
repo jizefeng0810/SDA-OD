@@ -25,7 +25,7 @@ class ModelWithLoss(torch.nn.Module):
     else:
       source_outputs = self.model(source_batch['input'])  # model ouput: [hm, wh, reg]
       loss, loss_stats = self.loss(source_outputs, source_batch)  # calculate loss：[loss, hm_loss, wh_loss, off_loss]
-      return source_outputs[-1] # , loss, loss_stats
+      return source_outputs[-1], loss, loss_stats
 
 class BaseTrainer(object):
   def __init__(
@@ -49,7 +49,7 @@ class BaseTrainer(object):
           state[k] = v.to(device=device, non_blocking=True)
 
   def run_epoch(self, phase, epoch, source_data_loader = None, target_data_loader = None):
-    if target_data_loader == None:  # only source dataset
+    if target_data_loader == None or phase == 'val:  # only source dataset
       model_with_loss = self.model_with_loss
       if phase == 'train':
         model_with_loss.train()
