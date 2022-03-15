@@ -9,7 +9,11 @@ In recent years, deep learning technologies for object detection have made great
 Domain shift is addressed in two steps. In the first step, to bridge the domain gap, an unpaired image-to-image translator is trained to construct a fake target domain by translating the source images to the similar ones in the target domain. In the second step, an adaptive CenterNet is designed to align distributions at the feature level in an adversarial learning manner.
 
 ---
-## Datasets
+
+## How to use code
+Please refer to [INSTALL.md](https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md) for installation instructions.
+
+### Datasets
 You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cityscapes-dataset.com/downloads/)、[BDD100K](https://bdd-data.berkeley.edu/)、[sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)
 
 
@@ -27,9 +31,6 @@ Data path format:
             images/**
             annotations/**
 ```
-
-## How to use code
-Please refer to [INSTALL.md](https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md) for installation instructions.
 
 ### Training
 #### Step 1: CycleGAN
