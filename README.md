@@ -14,19 +14,7 @@ You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cit
 
 
 After downloading, the folder structure for our experiments should look like this:
-```
-/root/
-    dataset/
-        cityscapes/
-            images/
-                **.png
-            annotations/
-                train.json
-                val.json
-        foggycityscapes/
-            images/**
-            annotations/**
-```
+<img src="img/data_folder_structure.jpg"></div>
 
 ### Training
 #### Step 1: CycleGAN
