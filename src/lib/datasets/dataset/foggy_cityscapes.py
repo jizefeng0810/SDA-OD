@@ -21,25 +21,25 @@ class FoggyCityscapes(data.Dataset):
 
     def __init__(self, opt, split):
         super(FoggyCityscapes, self).__init__()
-        self.data_dir = os.path.join(opt.data_dir, 'foggy_cityscapes_data/coco_foggy_cityscapes')       # check
+        self.data_dir = opt.data_dir
         self.img_dir = os.path.join(self.data_dir, 'images')        # check
         if split == 'val':
             self.annot_path = os.path.join(
                 self.data_dir, 'annotations',
-                'foggy_instancesonly_filtered_gtFine_val.json')           # check
+                'val.json')           # check
         elif split == 'test':
             self.annot_path = os.path.join(
                 self.data_dir, 'annotations',
-                'foggy_instancesonly_filtered_gtFine_val.json')           # check
+                'val.json')           # check
         else:
             if opt.task == 'exdet':
                 self.annot_path = os.path.join(
                     self.data_dir, 'annotations',
-                    'foggy_instancesonly_filtered_gtFine_train.json')     # check
+                    'train.json')     # check
             else:
                 self.annot_path = os.path.join(
                     self.data_dir, 'annotations',
-                    'foggy_instancesonly_filtered_gtFine_train.json')     # check
+                    'train.json')     # check
         self.max_objs = 128
         self.class_name = [             # check
                         'person',

@@ -11,7 +11,16 @@ Domain shift is addressed in two steps. In the first step, to bridge the domain 
 ---
 ## Datasets
 You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cityscapes-dataset.com/downloads/)、[BDD100K](https://bdd-data.berkeley.edu/)、[sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)
-
+Data path format:
+```
+/root/
+		dataset/
+				images/
+					**.png
+				annotations/
+					train.json
+					val.json
+```
 
 ## How to use code
 Please refer to [INSTALL.md](https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md) for installation instructions.
@@ -22,7 +31,7 @@ The source code used for the CycleGAN model was made publicly available by [here
 #### Step 2: Adaptive CenterNet
 Below script gives you an example of training a model with [pre-trained model](https://drive.google.com/file/d/1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT/view).
 ```
-python main.py ctdet --source_dataset fake_cityscapes --target_dataset foggy_cityscapes --lr 1.25e-4 --lr_step 40,80 --num_epochs 100 --exp_id grl_C2F --batch_size 32 --gpus 0 --load_model ./pre-trained-model/ctdet_coco_dla_2x.pth
+python main.py ctdet --source_dataset fake_cityscapes --target_dataset foggy_cityscapes --exp_id grl_C2F --batch_size 32 --data_dir /root/dataset/ --load_model ./pre-trained-model/ctdet_coco_dla_2x.pth
 ```
 ---
 
