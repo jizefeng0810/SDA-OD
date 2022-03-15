@@ -47,7 +47,7 @@ Our proposed method is evaluated in domain shift scenarios based on the driving 
 #### Example: Clear-to-Haze Adaptation Scenario
 You can download the [checkpoint](https://drive.google.com/file/d/1bbtUnB7vi5p3cpX2Mf0iz_ploj2Omxdv/view?usp=sharing) and do prediction or evaluation.
 ```
-python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --load_model ./sda_save.pth
+python test.py ctdet --exp_id checkout --source_dataset foggy_cityscapes --not_prefetch_test --data_dir /root/dataset/ --load_model ./sda_save.pth
 ```
 The results show that our method is superior to the state-of-the-art methods and is effective for object detection in domain shift scenarios.
 <div align=center><img src="img/res.jpg"></div>
