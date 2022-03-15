@@ -17,11 +17,15 @@ Data path format:
 ```
 /root/
     dataset/
-        images/
-            **.png
-        annotations/
-            train.json
-            val.json
+	    cityscapes/
+            images/
+                **.png
+            annotations/
+                train.json
+                val.json
+		foggycityscapes/
+		    images/**
+			annotations/**
 ```
 
 ## How to use code

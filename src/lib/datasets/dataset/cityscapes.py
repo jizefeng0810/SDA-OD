@@ -21,7 +21,7 @@ class Cityscapes(data.Dataset):
 
     def __init__(self, opt, split):
         super(Cityscapes, self).__init__()
-        self.data_dir = opt.data_dir
+        self.data_dir = os.path.join(opt.data_dir, 'cityscapes')
         self.img_dir = os.path.join(self.data_dir, 'images')        # check
         if split == 'val':
             self.annot_path = os.path.join(
