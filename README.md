@@ -13,7 +13,7 @@ Please refer to [INSTALL.md](https://github.com/xingyizhou/CenterNet/blob/master
 You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cityscapes-dataset.com/downloads/)、[BDD100K](https://bdd-data.berkeley.edu/)、[sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)
 
 
-Data path format:
+After downloading, the folder structure for our experiments should look like this:
 ```
 /root/
     dataset/
