@@ -14,12 +14,12 @@ You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cit
 Data path format:
 ```
 /root/
-		dataset/
-				images/
-					**.png
-				annotations/
-					train.json
-					val.json
+	dataset/
+		images/
+			**.png
+		annotations/
+			train.json
+			val.json
 ```
 
 ## How to use code
