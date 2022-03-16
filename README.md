@@ -14,6 +14,8 @@ You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cit
 
 
 After downloading, the folder structure for our experiments should look like this:
+
+
 <img src="img/data_folder_structure.jpg"></div>
 
 ### Training
