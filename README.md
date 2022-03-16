@@ -13,7 +13,7 @@ Please refer to [INSTALL.md](https://github.com/xingyizhou/CenterNet/blob/master
 You can download dataset from: [Cityscapes and Foggy Cityscapes](https://www.cityscapes-dataset.com/downloads/)、[BDD100K](https://bdd-data.berkeley.edu/)、[sim10k](https://fcav.engin.umich.edu/projects/driving-in-the-matrix)
 
 
-After downloading, the folder structure for our experiments should look like this:
+After downloading, it needs to be converted into coco dataset format. The folder structure for our experiment should look like this:
 
 
 <img src="img/data_folder_structure.jpg"></div>
