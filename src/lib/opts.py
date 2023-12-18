@@ -19,7 +19,7 @@ class opts(object):
                              help='coco | cityscapes | foggy_cityscapes | kitti_2d | fake_kitti_2d '
                                   '| fake_cityscapes | cityscapes_car_only | bdd_daytime | bdd_night | fake_bdd_daytime | sim10k | fake_sim10k')
     self.parser.add_argument('--data_dir', default='/root/')
-	self.parser.add_argument('--exp_id', default='default')
+    self.parser.add_argument('--exp_id', default='default')
     self.parser.add_argument('--test', action='store_true')
     self.parser.add_argument('--debug', type=int, default=0,
                              help='level of visualization.'
