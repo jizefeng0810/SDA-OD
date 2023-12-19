@@ -49,7 +49,7 @@ class BaseTrainer(object):
           state[k] = v.to(device=device, non_blocking=True)
 
   def run_epoch(self, phase, epoch, source_data_loader = None, target_data_loader = None):
-    if target_data_loader == None or phase == 'val:  # only source dataset
+    if target_data_loader == None or phase == 'val':  # only source dataset
       model_with_loss = self.model_with_loss
       if phase == 'train':
         model_with_loss.train()
